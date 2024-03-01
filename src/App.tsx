@@ -1,21 +1,36 @@
-import React from 'react';
-import NavBar from './components/NavBar';
+import './App.css';
+import { Header } from './components/Header';
+import { BrowserRouter, Route, Router, Routes, useLocation } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
-import Services from './components/Services';
-import Contact from './components/Contact';
-import './App.css';
+import Resume from './components/Resume';
+import { useEffect } from 'react';
+import Footer from './components/Footer';
 
 const App = () => {
+
+  const ScrollToTop = () => {
+    const { pathname } = useLocation()
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [pathname])
+    return null
+  }
+  
   return (
-    <div>
-      <NavBar />
-      <Home />
-      <About />
-      <Services />
-      <Contact />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <ScrollToTop />
+        <Header />
+        <Routes>
+          <Route path='/home' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/resume' element={<Resume />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
