@@ -6,6 +6,7 @@ import About from './components/About';
 import Resume from './components/Resume';
 import { useEffect } from 'react';
 import Footer from './components/Footer';
+import Contact from './components/Contact';
 
 const App = () => {
 
@@ -26,6 +27,7 @@ const App = () => {
           <Route path='/home' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/resume' element={<Resume />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
         <Footer />
       </div>
